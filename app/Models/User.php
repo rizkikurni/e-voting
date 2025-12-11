@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'is_trial_used',
+        'custom_logo',
     ];
 
     /**
@@ -44,5 +47,47 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // RELATIONS
+    public function plans()
+    {
+        return $this->hasMany(UserPlan::class);
+    }
+
+    public function activePlans()
+    {
+        return $this->plans()->where('payment_status', 'paid');
+    }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    // HELPER: cek apakah user masih punya jatah membuat event
+    public function hasEventQuota()
+    {
+        return $this->plans()
+            ->where('payment_status', 'paid')
+            ->join('subscription_plans', 'subscription_plans.id', '=', 'user_plans.plan_id')
+            ->whereColumn('user_plans.used_event', '<', 'subscription_plans.max_event')
+            ->exists();
+    }
+
+    // Ambil 1 paket yang masih punya jatah
+    public function getAvailablePlan()
+    {
+        return $this->plans()
+            ->where('payment_status', 'paid')
+            ->join('subscription_plans', 'subscription_plans.id', '=', 'user_plans.plan_id')
+            ->whereColumn('user_plans.used_event', '<', 'subscription_plans.max_event')
+            ->select('user_plans.*')
+            ->first();
     }
 }

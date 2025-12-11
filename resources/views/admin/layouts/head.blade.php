@@ -5,7 +5,9 @@
  <!--plugins-->
  <link href="{{ asset('admin/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
  <link href="{{ asset('admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
- <link href="{{ asset('admin/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+ <link href="{{ asset('admin/assets/plugins/metismenu/css/metisMenu.min.css') }}"
+ rel="stylesheet" />
+  <link href="{{ asset('admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
  <!-- Bootstrap CSS -->
  <link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
  <link href="{{ asset('admin/assets/css/bootstrap-extended.css') }}" rel="stylesheet" />
@@ -24,4 +26,4 @@
  <link href="{{ asset('admin/assets/css/semi-dark.css') }}" rel="stylesheet" />
  <link href="{{ asset('admin/assets/css/header-colors.css') }}" rel="stylesheet" />
 
- <title>Snacked - Bootstrap 5 Admin Template</title>
+ <title>E voting</title>
