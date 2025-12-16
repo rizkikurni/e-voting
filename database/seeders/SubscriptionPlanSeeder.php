@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\SubscriptionPlan;
 use Illuminate\Database\Seeder;
 
-class SubscriptionPlansSeeder extends Seeder
+class SubscriptionPlanSeeder extends Seeder
 {
     public function run(): void
     {
@@ -21,7 +21,7 @@ class SubscriptionPlansSeeder extends Seeder
                 'price'         => $p[1],
                 'features'      => ['report' => true, 'export' => true],
                 'max_event'     => $p[2],
-                'max_candidates'=> $p[3],
+                'max_candidates' => $p[3],
                 'max_voters'    => $p[4],
             ]);
         }
@@ -30,7 +30,7 @@ class SubscriptionPlansSeeder extends Seeder
         for ($i = 1; $i <= 12; $i++) {
             SubscriptionPlan::create([
                 'name' => "Plan Custom $i",
-                'price' => rand(20000,150000),
+                'price' => rand(20000, 150000),
                 'features' => ['custom' => true],
                 'max_event' => rand(1, 5),
                 'max_candidates' => rand(5, 20),

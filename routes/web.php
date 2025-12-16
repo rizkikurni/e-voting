@@ -23,7 +23,6 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('users', UserController::class);
-
     Route::resource('subscription-plans', SubscriptionPlanController::class);
 });
 // khusus customer / user
