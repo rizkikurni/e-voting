@@ -60,7 +60,7 @@
         <li class="menu-label">Subscription</li>
 
         <li>
-            <a href="{{ route('plans.index') }}">
+            <a href="{{ route('subscription-plans.index') }}">
                 <div class="parent-icon"><i class="bi bi-gem"></i></div>
                 <div class="menu-title">Daftar Paket</div>
             </a>
