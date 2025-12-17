@@ -12,7 +12,7 @@ class SubscriptionPlanController extends Controller
      */
     public function index()
     {
-        return view('admin.subscription-plans.index');
+        //
     }
 
     /**
